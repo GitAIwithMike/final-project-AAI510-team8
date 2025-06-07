@@ -48,11 +48,11 @@ Ensure you have the following installed on your system:
 3. **Install the Dependencies**  
    Use the `requirements.txt` file to install the required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r notebook/requirements.txt
    ```
    If you encounter installation issues, try:
    ```bash
-   pip install --force-reinstall -r requirements.txt
+   pip install --force-reinstall -r notebook/requirements.txt
    ```
 
 4. **Verify the Installations**  
