@@ -1,8 +1,145 @@
 # MS-AAI
-## AAI-501 Final Project - Group 8
+## AAI-510-02 Final Project - Group 8
 
 ### Final Project for the AAI-501 (Machine Learning: Fundamentals and Applications) Course in the **Master of Applied Artificial Intelligence** Program
 ### University of San Diego
+
+## ���� Stock Price Prediction for S&P 500 Companies  
+## Iman Hamdan, Michael De Leon, Matt Hashemi  
+
+> **Note:** The machine learning models and data analysis are located in [`Final_Project_Section2_Team8.ipynb`](Final_Project_Section2_Team8.ipynb)
+
+---
+
+## �� Introduction
+
+Accurate stock price prediction is essential for investors aiming to reduce risks, maximize returns, and make informed decisions in volatile markets.
+
+This project leverages historical financial data and machine learning techniques to develop robust predictive models for **505 companies listed on the S&P 500 index**. By analyzing key metrics such as stock prices, earnings, and market indicators, we aim to build a model that delivers high accuracy and actionable insights.
+
+---
+
+## �� Project Goals
+
+- **Predictive Modeling**: Develop ML models to forecast future stock prices.
+- **Model Comparison**: Evaluate Random Forest, XGBoost, Decision Tree, and Linear Regression.
+- **Feature Engineering**: Improve performance using moving averages and volatility metrics.
+- **Data Visualization**: Provide visual insights into feature importance and residuals.
+- **Deployment Planning**: Outline a strategy for deploying the model using AWS SageMaker.
+
+---
+
+## �� Technologies Used
+
+| Technology | Purpose |
+|----------|---------|
+| Python (3.11.7) | Core programming language |
+| Scikit-learn, XGBoost | Machine learning models |
+| Pandas, NumPy | Data manipulation and preprocessing |
+| Matplotlib, Seaborn | Data visualization |
+| Jupyter Notebook | Interactive analysis |
+| AWS SageMaker | Model deployment |
+
+---
+
+## �� Why This Matters?
+
+Stock price movements are influenced by numerous factors including macroeconomic trends, company-specific events, and global news. Traditional methods often fall short in capturing complex patterns in financial data.
+
+Using **machine learning**, our Random Forest model achieved an impressive **R² score of 0.98** on validation data, demonstrating its potential to be integrated into real-time investment decision-making systems.
+
+---
+
+## �� Dataset Overview
+
+We used a dataset containing financial data for **505 S&P 500 companies**, including **14 key features**:
+
+### �� Features Included:
+| Feature | Description |
+|--------|-------------|
+| `Price` | Current stock price |
+| `Price/Earnings` | P/E ratio |
+| `Dividend Yield` | Dividend per share divided by price per share |
+| `Earnings/Share` | Earnings per share |
+| `52 Week Low/High` | Annual price range |
+| `Market Cap` | Market capitalization |
+| `EBITDA` | Earnings before interest, taxes, depreciation, and amortization |
+| `Price/Sales`, `Price/Book` | Valuation ratios |
+| `Sector` | Industry classification (encoded) |
+
+🔗 **Dataset Source:** [S&P 500 Financial Data](https://www.kaggle.com/datasets/)  *(link placeholder – replace with actual link)*
+
+---
+
+## �� Machine Learning Models
+
+We trained and evaluated four models:
+
+1. **Linear Regression**
+   - Baseline model for comparison
+   - Interpretable coefficients and fast training
+
+2. **Decision Tree**
+   - Captures non-linear relationships
+   - Prone to overfitting without pruning
+
+3. **Random Forest**
+   - Ensemble method combining multiple trees
+   - Reduced overfitting and high accuracy (Best performing model)
+
+4. **XGBoost**
+   - Gradient boosting framework
+   - Strong regularization but underperformed on this dataset
+
+### �� Model Performance Summary
+
+| Model | RMSE | MAE | R² |
+|------|------|-----|-----|
+| **Random Forest** | 0.01 | 0.01 | **0.98** ✅ |
+| **Decision Tree** | 0.02 | 0.01 | 0.93 |
+| **Linear Regression** | 0.02 | 0.01 | 0.84 |
+| **XGBoost** | 0.07 | 0.01 | -0.30 ❌ |
+
+---
+
+## �� Visualizations
+
+Key visualizations included in the notebook:
+
+- **Correlation Matrix Heatmap**: Identifies important features related to stock prices
+- **Actual vs. Predicted Scatter Plots**: Compares model predictions against true values
+- **Residual Analysis**: Assesses model error distribution
+- **Learning Curves**: Shows how model performance improves with more data
+- **Feature Importance Plot**: Highlights which variables most influence predictions
+
+---
+
+## �� Deployment Plan
+
+To ensure practical use of our model, we propose the following deployment plan:
+
+- **Hosting Platform**: AWS SageMaker
+- **Inference Type**: Batch processing (daily predictions)
+- **Latency Requirements**: Low-latency response via REST API
+- **Cost Optimization**: Auto-scaling based on demand
+- **Monitoring**: Continuous evaluation and retraining on new data
+
+---
+
+## ��️ Ethical Considerations
+
+- **Bias & Fairness**: Ensure the model does not disproportionately favor certain sectors or large-cap companies.
+- **Transparency**: Clearly document assumptions, limitations, and interpretability of results.
+- **Regulatory Compliance**: Align with SEC guidelines and data privacy laws when used in production environments.
+
+---
+
+## �� Acknowledgments
+
+- **Dataset Source**: [S&P 500 Companies with Financial Information](https://www.kaggle.com/datasets/) 
+- **References**:
+  - *"Machine Learning for Finance"* by Marcos Lopez de Prado
+  - *"Deep Learning for Time Series Forecasting"* by Jason Brownlee
 
 ---
 
@@ -23,10 +160,9 @@ Ensure you have the following installed on your system:
 ## Setup Instructions
 
 1. **Clone or Download the Project Repository**  
-   If using Git:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/yourusername/stock-price-prediction.git 
+   cd stock-price-prediction
    ```
 
 2. **Create a Virtual Environment (Optional but Recommended)**  
@@ -141,7 +277,7 @@ brew install pandoc
 ### Convert a Jupyter Notebook to PDF
 To convert a Jupyter notebook (`analysis.ipynb`) to a PDF, run:
 ```bash
-jupyter nbconvert --to pdf "Group_8_Final_Team_Project_Notebook.ipynb"
+jupyter nbconvert --to pdf "Final_Project_Section2_Team8.ipynb"
 ```
 
 Ensure that LaTeX is installed on your system for successful PDF generation.
@@ -149,13 +285,13 @@ Ensure that LaTeX is installed on your system for successful PDF generation.
 ### Convert a Jupyter Notebook to Text
 Run this command to convert the notebook to plain text:
 ```bash
-jupyter nbconvert --to script "Group_8_Final_Team_Project_Notebook.ipynb"
+jupyter nbconvert --to script "Final_Project_Section2_Team8.ipynb"
 ```
 
 ### Convert a Jupyter Notebook to Markdown
 Run this command to convert the notebook to Markdown (.md) file in the same directory:
 ```bash
-jupyter nbconvert --to markdown "Group_8_Final_Team_Project_Notebook.ipynb"
+jupyter nbconvert --to markdown "Final_Project_Section2_Team8.ipynb"
 ```
 
 ---
@@ -178,6 +314,6 @@ pip install 'black[jupyter]'
 
 Step 2: Format Your Jupyter Notebook
 ```bash
-black Group_8_Final_Team_Project_Notebook.ipynb
+black Final_Project_Section2_Team8.ipynb
 ```
 ---
